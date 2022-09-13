@@ -1,0 +1,16 @@
+advancia:
+  app:
+    jwtCookieName: advancia
+    jwtExpirationMs: 86400000
+    jwtSecret: advanciaSecretKey
+spring:
+  datasource:
+    password: password
+    url: jdbc:mysql://localhost:3306/PizzeriaDB?jdbcCompliantTruncation=false
+    username: root
+  jpa:
+    generate-ddl: false
+    properties:
+      hibernate:
+       ddl-auto: update
+       dialect: org.hibernate.dialect.MySQL5InnoDBDialect
