@@ -12,13 +12,14 @@ import it.advancia.pizzeria.repository.UtenteRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-  @Autowired
-  UtenteRepository utenteRepository;
-  @Override
-  @Transactional
-  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    Utente utente = utenteRepository.findByUsername(username)
-        .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
-    return UserDetailsImpl.build(utente);
-  }
+	@Autowired
+	UtenteRepository utenteRepository;
+
+	@Override
+	@Transactional
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Utente utente = utenteRepository.findByUsername(username)
+				.orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
+		return UserDetailsImpl.build(utente);
+	}
 }
